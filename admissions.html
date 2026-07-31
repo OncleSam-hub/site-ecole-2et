@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admissions — École Supérieure 2ET</title>
+<meta name="description" content="Rejoignez la promotion 2ET : tarifs, processus d'inscription et formulaire en ligne.">
+<link rel="icon" href="images/logo-2et.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="images/logo-2et.png" alt="Logo École 2ET">
+      <div><div class="brand-name">École 2ET</div><div class="brand-sub">Entrepreneuriat &amp; Technologies</div></div>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Accueil</a>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">L'école <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="a-propos.html">Qui sommes-nous</a><a href="faq.html">FAQ</a></div>
+      </div>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">Formations <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a></div>
+      </div>
+      <a href="actualites.html">Actualités</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="recrutement.html">Recrutement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="site-cta"><a href="admissions.html" class="btn btn-green">Admissions</a></div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+    <a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a>
+    <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+    <a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-green">Admissions</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow eyebrow-light">Admissions</div>
+    <h1>Rejoignez la promotion 2ET</h1>
+    <p>2ET, au service de votre réussite ! Toutes les informations pour vous inscrire.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <div class="steps-grid" style="margin-bottom:70px">
+      <div class="step-card"><div class="big">130 000 F</div><div class="small">Tarifs à partir de 130 000 FCFA, payables en 4 tranches sans frais.</div></div>
+      <div class="step-card"><div class="big">Costume offert</div><div class="small">Pour les inscriptions anticipées, réservation deux semaines après le résultat du Bac.</div></div>
+      <div class="step-card"><div class="big">Stage garanti</div><div class="small">Dès la 1ère année de BTS, pour une insertion professionnelle réussie.</div></div>
+      <div class="step-card"><div class="big">25 étudiants</div><div class="small">Classes à effectif limité pour un encadrement de qualité.</div></div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:70px">
+      <div class="photo-frame"><img src="images/stock/hero-students.jpg" alt="Étudiants de l'École 2ET"></div>
+      <div>
+        <h2 style="font-size:24px;margin:0 0 18px">Processus d'inscription</h2>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="step-row"><div class="step-num">1</div><div><div class="step-title">Réservez votre place</div><div class="step-desc">Deux semaines après le résultat du Bac, réservez pour bénéficier du costume offert.</div></div></div>
+          <div class="step-row"><div class="step-num">2</div><div><div class="step-title">Remplissez le formulaire</div><div class="step-desc">Renseignez vos informations et la filière souhaitée en ligne.</div></div></div>
+          <div class="step-row"><div class="step-num">3</div><div><div class="step-title">Validez votre dossier</div><div class="step-desc">Un conseiller vous recontacte pour finaliser l'inscription et le règlement.</div></div></div>
+          <div class="step-row"><div class="step-num">4</div><div><div class="step-title">Rentrée à 2ET</div><div class="step-desc">Intégrez votre classe à effectif limité de 25 étudiants.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="formulaire" style="scroll-margin-top:100px">
+
+      <div data-admissions="open" class="form-panel" style="max-width:760px;margin:0 auto">
+        <div style="text-align:center;margin-bottom:30px">
+          <div class="pill">Inscriptions ouvertes</div>
+          <h2>Formulaire d'inscription</h2>
+        </div>
+        <form name="admissions" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="admissions">
+          <p class="hidden" style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
+          <div class="form-row">
+            <input required name="nom" placeholder="Nom">
+            <input required name="prenoms" placeholder="Prénom(s)">
+          </div>
+          <div class="form-row">
+            <input required type="tel" name="telephone" placeholder="Téléphone">
+            <input required type="email" name="email" placeholder="Email">
+          </div>
+          <select required name="filiere">
+            <option value="">Filière souhaitée</option>
+            <option>Gestion Commerciale (GEC)</option>
+            <option>Finance Comptabilité et Gestion des Entreprises (FCGE)</option>
+            <option>Transports et Logistique (TL)</option>
+            <option>Informatique Développeur d'Applications (IDA)</option>
+            <option>Tourisme et Hôtellerie (TH)</option>
+            <option>Mines et Géologie Pétrole (MGP)</option>
+            <option>Assistanat de Direction (AD)</option>
+          </select>
+          <input name="bac" placeholder="Série et année du Bac">
+          <button type="submit" class="btn btn-orange">Envoyer ma demande d'inscription</button>
+          <div class="form-success" style="text-align:center">Merci ! Votre demande a bien été reçue, nous vous recontactons rapidement.</div>
+        </form>
+      </div>
+
+      <div data-admissions="closed" class="admissions-closed" style="display:none">
+        <div class="badge">2ET</div>
+        <h2 style="font-size:22px;margin:0 0 12px">Inscriptions bientôt ouvertes</h2>
+        <p style="font-size:14.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 24px">Le formulaire d'inscription en ligne sera bientôt disponible. Contactez-nous directement pour être informé dès l'ouverture.</p>
+        <a href="contact.html" class="btn btn-green">Nous contacter</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">École Supérieure 2ET</div>
+      <div class="footer-desc">École de l'Entrepreneuriat et des Technologies. Établissement privé d'enseignement supérieur agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique de Côte d'Ivoire.</div>
+      <div class="socials"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div>
+      <div class="footer-heading">Liens rapides</div>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+        <a href="formations.html">Nos formations</a><a href="formation-continue.html">Formation continue</a>
+        <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+        <a href="admissions.html">Admissions</a><a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Filières BTS</div>
+      <div class="footer-links">
+        <a href="formations.html#gec">Gestion Commerciale</a><a href="formations.html#fcge">Finance Comptabilité</a>
+        <a href="formations.html#log">Transports &amp; Logistique</a><a href="formations.html#ida">Informatique (IDA)</a>
+        <a href="formations.html#th">Tourisme &amp; Hôtellerie</a><a href="formations.html#mgp">Mines &amp; Géologie</a>
+        <a href="formations.html#ad">Assistanat de Direction</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-contact">
+        <div>Séguéla, quartier Résidentiel<br>non loin de l'ancienne base de l'ONUCI</div>
+        <div>07 87 35 45 85<br>05 04 49 81 21 · 07 08 89 24 11</div>
+        <div>info@2et.edu.ci</div>
+        <div>20 BP 697 ABJ 20</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> École Supérieure 2ET — Tous droits réservés</div>
+    <div>Agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

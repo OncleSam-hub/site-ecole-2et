@@ -1,0 +1,13 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Editeurs
+.vscode/
+.idea/
+
+# Netlify
+.netlify/
+
+# Dépendances (au cas où des outils seraient ajoutés plus tard)
+node_modules/

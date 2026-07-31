@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recrutement — École Supérieure 2ET</title>
+<meta name="description" content="Rejoindre l'équipe de l'École Supérieure 2ET : postes ouverts et dépôt de candidature.">
+<link rel="icon" href="images/logo-2et.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="images/logo-2et.png" alt="Logo École 2ET">
+      <div><div class="brand-name">École 2ET</div><div class="brand-sub">Entrepreneuriat &amp; Technologies</div></div>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Accueil</a>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">L'école <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="a-propos.html">Qui sommes-nous</a><a href="faq.html">FAQ</a></div>
+      </div>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">Formations <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a></div>
+      </div>
+      <a href="actualites.html">Actualités</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="recrutement.html">Recrutement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="site-cta"><a href="admissions.html" class="btn btn-green">Admissions</a></div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+    <a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a>
+    <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+    <a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-green">Admissions</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow eyebrow-light">Recrutement</div>
+    <h1>Rejoindre l'équipe 2ET</h1>
+    <p>Enseignants, personnel administratif et encadrants — construisez l'avenir de nos étudiants avec nous.</p>
+  </div>
+</div>
+
+<section class="section-narrow">
+
+  <div class="card" style="background:var(--green-light);border:none;padding:32px;text-align:center;margin-bottom:60px">
+    <div style="font-size:14.5px;color:var(--green);font-weight:600">Aucun poste ouvert pour le moment — vous pouvez néanmoins nous transmettre une candidature spontanée ci-dessous.</div>
+  </div>
+
+  <div class="form-panel">
+    <h2 style="font-size:22px;margin:0 0 6px">Déposer une candidature</h2>
+    <p style="font-size:14px;color:var(--text-muted);margin:0 0 26px">CV et lettre de motivation, ou simplement vos coordonnées et votre message.</p>
+    <form name="recrutement" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="recrutement">
+      <p class="hidden" style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
+      <div class="form-row">
+        <input required name="nom" placeholder="Nom complet">
+        <input required type="tel" name="telephone" placeholder="Téléphone">
+      </div>
+      <div class="form-row">
+        <input required type="email" name="email" placeholder="Email">
+        <input name="poste" placeholder="Poste souhaité">
+      </div>
+      <textarea name="message" rows="5" placeholder="Lettre de motivation / message"></textarea>
+      <div>
+        <label for="cv" style="display:block;font-size:13px;color:var(--text-muted);margin-bottom:6px">CV (PDF)</label>
+        <input type="file" id="cv" name="cv" accept=".pdf">
+      </div>
+      <button type="submit" class="btn btn-green">Envoyer ma candidature</button>
+      <div class="form-success">Merci ! Votre candidature a bien été transmise.</div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">École Supérieure 2ET</div>
+      <div class="footer-desc">École de l'Entrepreneuriat et des Technologies. Établissement privé d'enseignement supérieur agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique de Côte d'Ivoire.</div>
+      <div class="socials"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div>
+      <div class="footer-heading">Liens rapides</div>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+        <a href="formations.html">Nos formations</a><a href="formation-continue.html">Formation continue</a>
+        <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+        <a href="admissions.html">Admissions</a><a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Filières BTS</div>
+      <div class="footer-links">
+        <a href="formations.html#gec">Gestion Commerciale</a><a href="formations.html#fcge">Finance Comptabilité</a>
+        <a href="formations.html#log">Transports &amp; Logistique</a><a href="formations.html#ida">Informatique (IDA)</a>
+        <a href="formations.html#th">Tourisme &amp; Hôtellerie</a><a href="formations.html#mgp">Mines &amp; Géologie</a>
+        <a href="formations.html#ad">Assistanat de Direction</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-contact">
+        <div>Séguéla, quartier Résidentiel<br>non loin de l'ancienne base de l'ONUCI</div>
+        <div>07 87 35 45 85<br>05 04 49 81 21 · 07 08 89 24 11</div>
+        <div>info@2et.edu.ci</div>
+        <div>20 BP 697 ABJ 20</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> École Supérieure 2ET — Tous droits réservés</div>
+    <div>Agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

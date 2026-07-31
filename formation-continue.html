@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation continue — Cabinet de formation 2ET</title>
+<meta name="description" content="Séminaires professionnels, programmes de perfectionnement et formations sur-mesure pour les entreprises, par le cabinet de formation de l'École 2ET.">
+<link rel="icon" href="images/logo-2et.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="images/logo-2et.png" alt="Logo École 2ET">
+      <div><div class="brand-name">École 2ET</div><div class="brand-sub">Entrepreneuriat &amp; Technologies</div></div>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Accueil</a>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">L'école <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="a-propos.html">Qui sommes-nous</a><a href="faq.html">FAQ</a></div>
+      </div>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">Formations <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a></div>
+      </div>
+      <a href="actualites.html">Actualités</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="recrutement.html">Recrutement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="site-cta"><a href="admissions.html" class="btn btn-green">Admissions</a></div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+    <a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a>
+    <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+    <a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-green">Admissions</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow eyebrow-light">Cabinet de formation</div>
+    <h1>Formation continue</h1>
+    <p>Séminaires professionnels, programmes de perfectionnement et formations sur-mesure pour les entreprises et leurs collaborateurs.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-3" style="margin-bottom:90px">
+      <div class="card">
+        <div class="card-icon"></div>
+        <div class="card-title" style="font-size:17px">Séminaires professionnels</div>
+        <div class="card-desc" style="font-size:14px">Sessions courtes et ciblées sur des thématiques précises : management, vente, digital, gestion.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon"></div>
+        <div class="card-title" style="font-size:17px">Programmes de perfectionnement</div>
+        <div class="card-desc" style="font-size:14px">Parcours plus longs pour approfondir des compétences métier existantes.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon"></div>
+        <div class="card-title" style="font-size:17px">Formations en entreprise</div>
+        <div class="card-desc" style="font-size:14px">Programmes conçus sur-mesure pour les équipes et collaborateurs de votre organisation.</div>
+      </div>
+    </div>
+
+    <div class="card" style="display:grid;grid-template-columns:1fr 1.1fr;gap:48px;padding:48px" class="grid-2">
+      <div>
+        <div class="eyebrow">Formation sur-mesure</div>
+        <h2 style="font-size:26px;margin:0 0 16px">Organisons une formation pour votre entreprise</h2>
+        <p style="font-size:14.5px;line-height:1.7;color:var(--text-secondary);margin:0 0 20px">Décrivez-nous votre besoin — nombre de participants, thématique, durée souhaitée — notre équipe vous recontacte sous 48h pour construire un programme adapté.</p>
+        <div style="font-size:14px;color:var(--text-secondary);line-height:1.8">
+          <div>📍 Séguéla, quartier Résidentiel</div>
+          <div>07 87 35 45 85 / 05 04 49 81 21</div>
+          <div>info@2et.edu.ci</div>
+        </div>
+      </div>
+      <form name="formation-continue" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="formation-continue">
+        <p class="hidden" style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
+        <div class="form-row">
+          <input required name="entreprise" placeholder="Nom de l'entreprise">
+          <input required name="contact" placeholder="Nom du contact">
+        </div>
+        <div class="form-row">
+          <input required type="tel" name="telephone" placeholder="Téléphone">
+          <input required type="email" name="email" placeholder="Email">
+        </div>
+        <input name="participants" placeholder="Nombre de participants estimé">
+        <textarea required name="besoin" rows="4" placeholder="Décrivez votre besoin en formation"></textarea>
+        <button type="submit" class="btn btn-green">Envoyer la demande</button>
+        <div class="form-success">Merci ! Votre demande a bien été envoyée.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">École Supérieure 2ET</div>
+      <div class="footer-desc">École de l'Entrepreneuriat et des Technologies. Établissement privé d'enseignement supérieur agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique de Côte d'Ivoire.</div>
+      <div class="socials"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div>
+      <div class="footer-heading">Liens rapides</div>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+        <a href="formations.html">Nos formations</a><a href="formation-continue.html">Formation continue</a>
+        <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+        <a href="admissions.html">Admissions</a><a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Filières BTS</div>
+      <div class="footer-links">
+        <a href="formations.html#gec">Gestion Commerciale</a><a href="formations.html#fcge">Finance Comptabilité</a>
+        <a href="formations.html#log">Transports &amp; Logistique</a><a href="formations.html#ida">Informatique (IDA)</a>
+        <a href="formations.html#th">Tourisme &amp; Hôtellerie</a><a href="formations.html#mgp">Mines &amp; Géologie</a>
+        <a href="formations.html#ad">Assistanat de Direction</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-contact">
+        <div>Séguéla, quartier Résidentiel<br>non loin de l'ancienne base de l'ONUCI</div>
+        <div>07 87 35 45 85<br>05 04 49 81 21 · 07 08 89 24 11</div>
+        <div>info@2et.edu.ci</div>
+        <div>20 BP 697 ABJ 20</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> École Supérieure 2ET — Tous droits réservés</div>
+    <div>Agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

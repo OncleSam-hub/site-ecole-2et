@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — École Supérieure 2ET</title>
+<meta name="description" content="Contactez l'École Supérieure 2ET à Séguéla, Côte d'Ivoire.">
+<link rel="icon" href="images/logo-2et.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="images/logo-2et.png" alt="Logo École 2ET">
+      <div><div class="brand-name">École 2ET</div><div class="brand-sub">Entrepreneuriat &amp; Technologies</div></div>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Accueil</a>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">L'école <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="a-propos.html">Qui sommes-nous</a><a href="faq.html">FAQ</a></div>
+      </div>
+      <div class="nav-dropdown"><span class="nav-dropdown-toggle">Formations <span>▾</span></span>
+        <div class="nav-dropdown-menu"><a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a></div>
+      </div>
+      <a href="actualites.html">Actualités</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="recrutement.html">Recrutement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="site-cta"><a href="admissions.html" class="btn btn-green">Admissions</a></div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+    <a href="formations.html">Formations BTS</a><a href="formation-continue.html">Formation continue</a>
+    <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+    <a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-green">Admissions</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow eyebrow-light">Contact</div>
+    <h1>Parlons de votre projet</h1>
+    <p>Une question ? Notre équipe vous répond rapidement.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px" class="grid-2">
+
+    <div>
+      <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:32px">
+        <div class="contact-info-card"><div class="label">Adresse</div><div class="value">Séguéla, quartier Résidentiel, non loin de l'ancienne base de l'ONUCI<br>20 BP 697 ABJ 20</div></div>
+        <div class="contact-info-card"><div class="label">Téléphone</div><div class="value">07 87 35 45 85<br>05 04 49 81 21<br>07 08 89 24 11</div></div>
+        <div class="contact-info-card"><div class="label">Email</div><div class="value">info@2et.edu.ci</div></div>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-6.6800%2C7.9500%2C-6.6300%2C7.9900&layer=mapnik&marker=7.9700%2C-6.6550" title="Localisation École 2ET, Séguéla"></iframe>
+      </div>
+    </div>
+
+    <div class="form-panel">
+      <h2>Envoyez-nous un message</h2>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden" style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
+        <input required name="nom" placeholder="Nom complet">
+        <input required type="email" name="email" placeholder="Email">
+        <input name="sujet" placeholder="Sujet">
+        <textarea required name="message" rows="5" placeholder="Votre message"></textarea>
+        <button type="submit" class="btn btn-green">Envoyer le message</button>
+        <div class="form-success">Merci ! Votre message a bien été envoyé.</div>
+      </form>
+      <div class="socials">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">ig</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">École Supérieure 2ET</div>
+      <div class="footer-desc">École de l'Entrepreneuriat et des Technologies. Établissement privé d'enseignement supérieur agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique de Côte d'Ivoire.</div>
+      <div class="socials"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div>
+      <div class="footer-heading">Liens rapides</div>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
+        <a href="formations.html">Nos formations</a><a href="formation-continue.html">Formation continue</a>
+        <a href="actualites.html">Actualités</a><a href="galerie.html">Galerie</a>
+        <a href="admissions.html">Admissions</a><a href="recrutement.html">Recrutement</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Filières BTS</div>
+      <div class="footer-links">
+        <a href="formations.html#gec">Gestion Commerciale</a><a href="formations.html#fcge">Finance Comptabilité</a>
+        <a href="formations.html#log">Transports &amp; Logistique</a><a href="formations.html#ida">Informatique (IDA)</a>
+        <a href="formations.html#th">Tourisme &amp; Hôtellerie</a><a href="formations.html#mgp">Mines &amp; Géologie</a>
+        <a href="formations.html#ad">Assistanat de Direction</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-contact">
+        <div>Séguéla, quartier Résidentiel<br>non loin de l'ancienne base de l'ONUCI</div>
+        <div>07 87 35 45 85<br>05 04 49 81 21 · 07 08 89 24 11</div>
+        <div>info@2et.edu.ci</div>
+        <div>20 BP 697 ABJ 20</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> École Supérieure 2ET — Tous droits réservés</div>
+    <div>Agréé par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
