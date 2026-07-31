@@ -11,3 +11,6 @@ Thumbs.db
 
 # Dépendances (au cas où des outils seraient ajoutés plus tard)
 node_modules/
+
+# Zone de dépôt des photos brutes en attente d'intégration (pas le site déployé)
+photos-a-integrer/

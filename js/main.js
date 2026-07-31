@@ -7,7 +7,47 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryFilter();
   initAdmissionsToggle();
   initNetlifyForms();
+  initHeroCarousel();
 });
+
+// ---- Carousel du hero (accueil) ----
+function initHeroCarousel() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return;
+  let current = 0;
+  let timer;
+
+  function show(index) {
+    slides[current].classList.remove('active');
+    dots[current] && dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current] && dots[current].classList.add('active');
+  }
+
+  function next() {
+    show((current + 1) % slides.length);
+  }
+
+  function startAutoplay() {
+    timer = setInterval(next, 5000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(timer);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      show(i);
+      stopAutoplay();
+      startAutoplay();
+    });
+  });
+
+  startAutoplay();
+}
 
 // ---- Menu mobile ----
 function initMobileNav() {
