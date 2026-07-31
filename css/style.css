@@ -125,7 +125,7 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 .hero {
   position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden;
 }
-.hero-slides { position: absolute; inset: 0; }
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
 .hero-slide {
   position: absolute; inset: 0; background-size: cover; background-position: center;
   opacity: 0; transition: opacity 1.4s ease;
@@ -133,19 +133,20 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 .hero-slide.active { opacity: 1; }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(100deg, rgba(14,40,24,0.92) 30%, rgba(14,40,24,0.55) 65%, rgba(14,40,24,0.35) 100%);
+  background: linear-gradient(100deg, rgba(10,28,17,0.96) 35%, rgba(10,28,17,0.75) 65%, rgba(10,28,17,0.45) 100%);
 }
-.hero-dots { position: absolute; z-index: 2; bottom: 22px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
+.hero-dots { position: absolute; z-index: 3; bottom: 22px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
 .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); border: none; padding: 0; cursor: pointer; }
 .hero-dot.active { background: #fff; }
-.hero-inner { position: relative; max-width: 1240px; margin: 0 auto; padding: 100px 24px; width: 100%; }
+/* z-index 2 so the text sits above the slides AND the dark overlay (that's the fix — the overlay used to paint over the text because it had a higher z-index than this auto-positioned block) */
+.hero-inner { position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 100px 24px; width: 100%; }
 .hero-content { max-width: 620px; }
 .hero-badge {
   display: inline-block; background: rgba(255,255,255,0.14); color: var(--gold);
   font-size: 13px; font-weight: 700; letter-spacing: 0.5px; padding: 7px 14px; border-radius: 100px; margin-bottom: 20px;
 }
-.hero-title { font-size: 48px; line-height: 1.1; color: #fff; margin: 0 0 18px; }
-.hero-text { font-size: 17px; line-height: 1.6; color: #DCE8DE; margin: 0 0 30px; }
+.hero-title { font-size: 48px; line-height: 1.1; color: #fff; margin: 0 0 18px; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+.hero-text { font-size: 17px; line-height: 1.6; color: #DCE8DE; margin: 0 0 30px; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ---- Page hero (interior pages) ---- */
