@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCarousel();
 });
 
-// ---- Carousel du hero (accueil) ----
+// ---- Carousel du hero (accueil) : annonces + flèches + points + défilement auto ----
 function initHeroCarousel() {
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.hero-dot');
+  const prevBtn = document.querySelector('.hero-arrow-prev');
+  const nextBtn = document.querySelector('.hero-arrow-next');
   if (!slides.length) return;
   let current = 0;
   let timer;
@@ -21,30 +23,41 @@ function initHeroCarousel() {
   function show(index) {
     slides[current].classList.remove('active');
     dots[current] && dots[current].classList.remove('active');
-    current = index;
+    current = (index + slides.length) % slides.length;
     slides[current].classList.add('active');
     dots[current] && dots[current].classList.add('active');
   }
 
   function next() {
-    show((current + 1) % slides.length);
+    show(current + 1);
+  }
+
+  function prev() {
+    show(current - 1);
   }
 
   function startAutoplay() {
-    timer = setInterval(next, 5000);
+    timer = setInterval(next, 6000);
   }
 
   function stopAutoplay() {
     clearInterval(timer);
   }
 
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
       show(i);
-      stopAutoplay();
-      startAutoplay();
+      restartAutoplay();
     });
   });
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); restartAutoplay(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); restartAutoplay(); });
 
   startAutoplay();
 }

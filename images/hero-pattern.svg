@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <g fill="none" stroke="#1B5E3A" stroke-linecap="round" stroke-linejoin="round" opacity="0.1">
+    <!-- Toque de diplôme -->
+    <g transform="translate(740,30) scale(9)" stroke-width="1.6">
+      <path d="M2 9 12 4l10 5-10 5-10-5Z"/>
+      <path d="M6 11.5V16c0 1.5 2.5 3 6 3s6-1.5 6-3v-4.5"/>
+      <path d="M20 9v5.5"/>
+    </g>
+    <!-- Livre ouvert -->
+    <g transform="translate(970,190) scale(8)" stroke-width="1.6">
+      <path d="M12 6.5c-1.8-1.3-4.2-2-7-2v13c2.8 0 5.2.7 7 2 1.8-1.3 4.2-2 7-2v-13c-2.8 0-5.2.7-7 2Z"/>
+      <line x1="12" y1="6.5" x2="12" y2="19.5"/>
+    </g>
+    <!-- Badge de réussite -->
+    <g transform="translate(540,220) scale(7)" stroke-width="1.6">
+      <circle cx="12" cy="10" r="7"/>
+      <path d="m9 10 2 2 4-4"/>
+      <path d="M9 16.5 7 22l5-2.5L17 22l-2-5.5"/>
+    </g>
+  </g>
+</svg>

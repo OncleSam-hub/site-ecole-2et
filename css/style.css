@@ -81,17 +81,17 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 }
 .site-header .container {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 24px; gap: 24px;
+  padding: 14px 20px; gap: 16px;
 }
 .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
 .brand-name { font-family: var(--font-heading); font-weight: 800; font-size: 18px; color: var(--green); letter-spacing: 0.2px; line-height: 1.15; }
 .brand-sub { font-size: 11px; color: var(--text-muted); font-weight: 500; }
 
-.site-nav { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }
+.site-nav { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
 .site-nav a, .site-nav .nav-dropdown-toggle {
-  padding: 10px 14px; border-radius: 8px; font-size: 14.5px; font-weight: 600; color: var(--text);
-  cursor: pointer; display: flex; align-items: center; gap: 5px;
+  padding: 9px 10px; border-radius: 8px; font-size: 14.5px; font-weight: 600; color: var(--text);
+  cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap;
 }
 .site-nav a:hover, .site-nav .nav-dropdown-toggle:hover { background: var(--green-light); color: var(--green); }
 .nav-dropdown { position: relative; }
@@ -101,11 +101,11 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   display: none; flex-direction: column; gap: 2px;
 }
 .nav-dropdown.open .nav-dropdown-menu { display: flex; }
-.nav-dropdown-menu a { padding: 10px 12px; border-radius: 7px; font-size: 14px; font-weight: 500; color: var(--text); }
+.nav-dropdown-menu a { padding: 10px 12px; border-radius: 7px; font-size: 14px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 8px; }
 .nav-dropdown-menu a:hover { background: var(--green-light); color: var(--green); }
 
 .site-cta { flex-shrink: 0; }
-.site-cta .btn { padding: 11px 20px; font-size: 14.5px; white-space: nowrap; }
+.site-cta .btn { padding: 10px 16px; font-size: 14.5px; white-space: nowrap; }
 
 .burger {
   display: none; background: none; border: none; padding: 8px; cursor: pointer;
@@ -118,36 +118,76 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   border-top: 1px solid var(--border); background: var(--bg);
 }
 .mobile-nav.open { display: flex; }
-.mobile-nav a { padding: 12px 8px; font-size: 15px; font-weight: 600; color: var(--text); border-bottom: 1px solid #EEE; }
+.mobile-nav a { padding: 12px 8px; font-size: 15px; font-weight: 600; color: var(--text); border-bottom: 1px solid #EEE; display: flex; align-items: center; gap: 10px; }
 .mobile-nav .btn { margin-top: 10px; text-align: center; }
+.nav-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.mobile-nav a .nav-icon { width: 17px; height: 17px; }
 
-/* ---- Hero ---- */
-.hero {
-  position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden;
+/* ---- Hero : carrousel d'annonces (espace publicitaire institutionnel) ----
+   Arrière-plan fixe (motif toque/livre/badge + dégradé blanc), inchangé d'une
+   annonce à l'autre — seul le contenu de chaque slide se fond en transition. */
+.hero { position: relative; overflow: hidden; }
+.hero-slides {
+  position: relative; min-height: clamp(300px, 34vw, 380px);
+  background-color: #fff;
+  background-image:
+    linear-gradient(100deg, #fff 0%, #fff 38%, rgba(255,255,255,0.82) 60%, rgba(255,255,255,0.55) 100%),
+    url('../images/hero-pattern.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, right center;
+  background-size: cover, cover;
 }
-.hero-slides { position: absolute; inset: 0; z-index: 0; }
 .hero-slide {
-  position: absolute; inset: 0; background-size: cover; background-position: center;
-  opacity: 0; transition: opacity 1.4s ease;
+  position: absolute; inset: 0; display: flex; align-items: center;
+  opacity: 0; visibility: hidden; transition: opacity 0.5s ease;
 }
-.hero-slide.active { opacity: 1; }
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(100deg, rgba(10,28,17,0.96) 35%, rgba(10,28,17,0.75) 65%, rgba(10,28,17,0.45) 100%);
+.hero-slide.active { opacity: 1; visibility: visible; z-index: 1; }
+
+.hero-slide-inner {
+  position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; width: 100%;
+  padding: 40px 84px; display: flex; align-items: center; gap: 26px;
 }
-.hero-dots { position: absolute; z-index: 3; bottom: 22px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
-.hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); border: none; padding: 0; cursor: pointer; }
-.hero-dot.active { background: #fff; }
-/* z-index 2 so the text sits above the slides AND the dark overlay (that's the fix — the overlay used to paint over the text because it had a higher z-index than this auto-positioned block) */
-.hero-inner { position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 100px 24px; width: 100%; }
-.hero-content { max-width: 620px; }
-.hero-badge {
-  display: inline-block; background: rgba(255,255,255,0.14); color: var(--gold);
-  font-size: 13px; font-weight: 700; letter-spacing: 0.5px; padding: 7px 14px; border-radius: 100px; margin-bottom: 20px;
+.hero-slide-icon {
+  flex-shrink: 0; width: 62px; height: 62px; border-radius: 16px; background: var(--green-light); color: var(--green);
+  display: flex; align-items: center; justify-content: center;
 }
-.hero-title { font-size: 48px; line-height: 1.1; color: #fff; margin: 0 0 18px; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
-.hero-text { font-size: 17px; line-height: 1.6; color: #DCE8DE; margin: 0 0 30px; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-slide-icon svg { width: 30px; height: 30px; }
+.hero-slide-body { max-width: 640px; }
+.hero-slide-eyebrow {
+  display: inline-block; background: var(--green-light); color: var(--green);
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.4px; padding: 6px 12px; border-radius: 100px; margin-bottom: 14px;
+}
+.hero-slide-title { font-family: var(--font-heading); font-size: 25px; font-weight: 800; line-height: 1.25; color: var(--text); margin: 0 0 10px; }
+.hero-slide-text { font-size: 14.5px; line-height: 1.55; color: var(--text-secondary); margin: 0 0 14px; }
+.hero-slide-link { display: inline-block; color: var(--green); font-weight: 700; font-size: 14px; border-bottom: 2px solid var(--green); padding-bottom: 2px; }
+.hero-slide-link:hover { border-color: var(--orange); color: var(--orange); }
+
+.hero-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
+  width: 42px; height: 42px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(27,94,58,0.10); color: var(--green); display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s ease;
+}
+.hero-arrow:hover { background: rgba(27,94,58,0.2); }
+.hero-arrow svg { width: 20px; height: 20px; }
+.hero-arrow-prev { left: 18px; }
+.hero-arrow-next { right: 18px; }
+
+.hero-dots { position: absolute; z-index: 4; bottom: 16px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
+.hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(27,94,58,0.22); border: none; padding: 0; cursor: pointer; }
+.hero-dot.active { background: var(--green); }
+
+@media (max-width: 700px) {
+  .hero-slide-inner { padding: 30px 52px; flex-direction: column; align-items: flex-start; gap: 14px; text-align: left; }
+  .hero-slide-icon { width: 48px; height: 48px; }
+  .hero-slide-icon svg { width: 24px; height: 24px; }
+  .hero-slide-title { font-size: 20px; }
+  .hero-slide-text { font-size: 13.5px; }
+  .hero-arrow { width: 34px; height: 34px; }
+  .hero-arrow svg { width: 16px; height: 16px; }
+  .hero-arrow-prev { left: 8px; }
+  .hero-arrow-next { right: 8px; }
+}
 
 /* ---- Page hero (interior pages) ---- */
 .page-hero { background: var(--green); padding: 70px 24px 50px; text-align: center; }
@@ -307,12 +347,16 @@ textarea { resize: vertical; }
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
+/* Bascule dédiée à la navigation : avec 7 onglets + icônes, la barre a besoin de
+   plus de largeur que le reste du contenu avant de basculer sur le menu burger,
+   pour ne jamais déborder (ex. le bouton Admissions qui dépassait). */
+@media (max-width: 1220px) {
   .site-nav, .site-cta { display: none !important; }
   .burger { display: flex !important; }
+}
+@media (max-width: 900px) {
   .grid-2, .grid-4, .grid-3, .values-grid, .team-grid, .steps-grid, .form-row, .footer-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .hero-title { font-size: 36px; }
 }
 @media (max-width: 560px) {
   .grid-2, .grid-4, .grid-3, .values-grid, .team-grid, .steps-grid, .form-row, .footer-grid { grid-template-columns: 1fr; }
