@@ -195,6 +195,41 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 .page-hero h1 { font-size: 36px; color: #fff; margin: 0 0 14px; }
 .page-hero p { font-size: 15.5px; color: #DCE8DE; margin: 0; line-height: 1.6; }
 
+/* ---- Bandeau plateformes (page Plateforme) ---- */
+.platform-hero {
+  position: relative; padding: 90px 24px; text-align: center;
+  background-image: linear-gradient(100deg, rgba(20,50,31,0.9), rgba(20,50,31,0.72)), url('../images/plateforme/bandeau-plateformes.jpg');
+  background-size: cover; background-position: center;
+}
+.platform-hero .container { max-width: 900px; }
+.platform-hero h1 { font-size: 36px; color: #fff; margin: 0 0 14px; }
+.platform-hero p { font-size: 15.5px; color: #DCE8DE; margin: 0; line-height: 1.6; }
+
+.platform-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.platform-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+  background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 34px 14px 26px;
+  position: relative; overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.platform-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--gold), var(--orange));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+}
+.platform-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(20,50,31,0.16); border-color: transparent; }
+.platform-card:hover::before { transform: scaleX(1); }
+.platform-card-icon {
+  width: 92px; height: 92px; border-radius: 50%; background: var(--green-light); color: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.3s ease;
+}
+.platform-card-icon svg { width: 44px; height: 44px; }
+.platform-card:hover .platform-card-icon { background: var(--green); color: #fff; transform: scale(1.08) rotate(-6deg); }
+.platform-card-label { font-family: var(--font-heading); font-weight: 700; font-size: 14.5px; color: var(--text); }
+@media (max-width: 900px) { .platform-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
+
 /* ---- Stats ---- */
 .stats-bar { background: var(--green); }
 .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; text-align: center; padding: 36px 24px; }
