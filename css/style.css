@@ -131,8 +131,8 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   position: relative; min-height: clamp(300px, 34vw, 380px);
   background-color: #fff;
   background-image:
-    linear-gradient(100deg, #fff 0%, #fff 38%, rgba(255,255,255,0.82) 60%, rgba(255,255,255,0.55) 100%),
-    url('../images/hero-pattern.svg');
+    linear-gradient(100deg, #fff 0%, #fff 34%, rgba(255,255,255,0.55) 52%, rgba(255,255,255,0.22) 72%, rgba(255,255,255,0.08) 100%),
+    url('../images/hero-scene.jpg');
   background-repeat: no-repeat, no-repeat;
   background-position: center, right center;
   background-size: cover, cover;
@@ -203,7 +203,8 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 
 /* ---- Cards ---- */
 .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 28px 22px; }
-.card-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--green); margin-bottom: 16px; }
+.card-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--green); color: #fff; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
+.card-icon svg { width: 22px; height: 22px; }
 .card-title { font-family: var(--font-heading); font-weight: 700; font-size: 15.5px; color: var(--text); margin-bottom: 8px; }
 .card-desc { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
 
@@ -225,6 +226,57 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 .cta-band .container { max-width: 900px; }
 .cta-band h2 { font-size: 28px; color: #fff; margin: 0 0 12px; }
 .cta-band p { font-size: 15px; color: var(--text-on-dark-muted); margin: 0 0 28px; }
+
+/* ---- Bandeau d'annonce animé (accueil, avant le mot du directeur) ---- */
+.announce-bar {
+  position: relative; overflow: hidden; display: block;
+  border-radius: 14px; padding: 18px 28px;
+  background: linear-gradient(90deg, var(--orange-dark), var(--orange), var(--gold), var(--orange), var(--orange-dark));
+  background-size: 300% 100%;
+  animation: announceGradient 8s ease infinite;
+  color: #fff; text-align: center; text-transform: uppercase;
+  font-family: var(--font-heading); font-weight: 800; font-size: 14px; letter-spacing: 0.3px; line-height: 1.5;
+  box-shadow: 0 10px 28px rgba(226,121,47,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.announce-bar:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(226,121,47,0.42); }
+.announce-bar::after {
+  content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg);
+  animation: announceShine 3.2s ease-in-out infinite;
+}
+.announce-emoji { display: inline-block; margin-right: 8px; animation: announceBounce 1.6s ease-in-out infinite; }
+
+@keyframes announceGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes announceShine {
+  0% { left: -60%; }
+  55% { left: 130%; }
+  100% { left: 130%; }
+}
+@keyframes announceBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.15); }
+}
+@media (max-width: 560px) {
+  .announce-bar { font-size: 12.5px; padding: 14px 18px; }
+}
+
+/* Éclat de confettis au chargement, façon anniversaire : parts d'un rayon de 5cm depuis le centre du bouton */
+.announce-wrap { position: relative; }
+.announce-confetti { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.confetti-piece {
+  position: absolute; top: 50%; left: 50%; border-radius: 1px;
+  animation-name: confettiBurst; animation-timing-function: cubic-bezier(0.25,0.8,0.35,1); animation-fill-mode: forwards;
+}
+@keyframes confettiBurst {
+  0% { transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--dist)) rotate(600deg); opacity: 0; }
+}
 
 /* ---- News / Gallery ---- */
 .news-card { display: block; }
@@ -341,6 +393,12 @@ textarea { resize: vertical; }
 .footer-links a { font-size: 13.5px; color: var(--text-on-dark-muted); }
 .footer-links a:hover { color: #fff; }
 .footer-contact { display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-on-dark-muted); line-height: 1.5; }
+.footer-map { max-width: 1240px; margin: 0 auto; padding: 0 24px 40px; }
+.footer-map-label { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.footer-map-label span { font-size: 12.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #fff; }
+.footer-map-label a { font-size: 13px; font-weight: 600; color: var(--gold); }
+.footer-map-label a:hover { color: #fff; }
+.footer-map iframe { display: block; width: 100%; height: 260px; border: 0; border-radius: 14px; }
 .footer-bottom {
   border-top: 1px solid #234A32; padding: 20px 24px; max-width: 1240px; margin: 0 auto; display: flex;
   justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--text-on-dark-faint);

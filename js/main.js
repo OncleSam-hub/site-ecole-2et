@@ -8,7 +8,66 @@ document.addEventListener('DOMContentLoaded', () => {
   initAdmissionsToggle();
   initNetlifyForms();
   initHeroCarousel();
+  initStatsCounter();
+  initAnnounceConfetti();
 });
+
+// ---- Éclat de confettis façon anniversaire sur le bandeau d'annonce (accueil) ----
+// À chaque chargement de la page, des petites bandes colorées partent du centre
+// du bouton et éclatent sur un rayon d'environ 5cm, comme des confettis.
+function initAnnounceConfetti() {
+  const host = document.querySelector('.announce-confetti');
+  if (!host) return;
+  const colors = ['#E2792F', '#D9A62E', '#1B5E3A', '#ffffff'];
+  const pieceCount = 34;
+
+  for (let i = 0; i < pieceCount; i++) {
+    const piece = document.createElement('span');
+    piece.className = 'confetti-piece';
+    const angle = Math.random() * 360;
+    const distCm = 1.5 + Math.random() * 3.5; // jusqu'à ~5cm du centre
+    const size = 5 + Math.random() * 5;
+    const duration = 0.9 + Math.random() * 0.6;
+    const delay = Math.random() * 0.15;
+    piece.style.setProperty('--angle', angle + 'deg');
+    piece.style.setProperty('--dist', distCm + 'cm');
+    piece.style.width = size + 'px';
+    piece.style.height = (size * 0.4) + 'px';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = duration + 's';
+    piece.style.animationDelay = delay + 's';
+    host.appendChild(piece);
+  }
+
+  setTimeout(() => { host.innerHTML = ''; }, 1800);
+}
+
+// ---- Compteurs animés du bandeau de chiffres clés (accueil) ----
+// Chaque chiffre part de 0 et monte jusqu'à sa valeur à chaque chargement du site.
+function initStatsCounter() {
+  const values = document.querySelectorAll('.stats-bar .value[data-count-to]');
+  if (!values.length) return;
+  const duration = 1400;
+
+  values.forEach((el) => {
+    const target = parseInt(el.getAttribute('data-count-to'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (isNaN(target)) return;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(target * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  });
+}
 
 // ---- Carousel du hero (accueil) : annonces + flèches + points + défilement auto ----
 function initHeroCarousel() {
@@ -58,6 +117,13 @@ function initHeroCarousel() {
 
   if (prevBtn) prevBtn.addEventListener('click', () => { prev(); restartAutoplay(); });
   if (nextBtn) nextBtn.addEventListener('click', () => { next(); restartAutoplay(); });
+
+  // Pause au survol, reprise à la sortie du curseur
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.addEventListener('mouseenter', stopAutoplay);
+    hero.addEventListener('mouseleave', startAutoplay);
+  }
 
   startAutoplay();
 }
