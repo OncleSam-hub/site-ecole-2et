@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://2et.edu.ci/index.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://2et.edu.ci/admissions.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://2et.edu.ci/formations.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://2et.edu.ci/a-propos.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://2et.edu.ci/formation-continue.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://2et.edu.ci/plateforme.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://2et.edu.ci/actualites.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://2et.edu.ci/faq.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://2et.edu.ci/contact.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://2et.edu.ci/galerie.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://2et.edu.ci/recrutement.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>

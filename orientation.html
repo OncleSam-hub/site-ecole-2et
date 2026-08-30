@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — École Supérieure 2ET</title>
-<meta name="description" content="Contactez l'École Supérieure 2ET à Séguéla, Côte d'Ivoire.">
+<title>Quiz d'orientation BTS — École Supérieure 2ET</title>
+<meta name="description" content="5 questions rapides pour découvrir quelle filière BTS de l'École Supérieure 2ET correspond le mieux à votre profil.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="École Supérieure 2ET">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Contact — École Supérieure 2ET">
-<meta property="og:description" content="Contactez l'École Supérieure 2ET à Séguéla, Côte d'Ivoire.">
+<meta property="og:title" content="Quiz d'orientation BTS — École Supérieure 2ET">
+<meta property="og:description" content="5 questions rapides pour découvrir quelle filière BTS de l'École Supérieure 2ET correspond le mieux à votre profil.">
 <meta property="og:image" content="https://2et.edu.ci/images/logo-2et.png">
-<meta property="og:url" content="https://2et.edu.ci/contact.html">
+<meta property="og:url" content="https://2et.edu.ci/orientation.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contact — École Supérieure 2ET">
-<meta name="twitter:description" content="Contactez l'École Supérieure 2ET à Séguéla, Côte d'Ivoire.">
+<meta name="twitter:title" content="Quiz d'orientation BTS — École Supérieure 2ET">
+<meta name="twitter:description" content="5 questions rapides pour découvrir quelle filière BTS vous correspond.">
 <meta name="twitter:image" content="https://2et.edu.ci/images/logo-2et.png">
 <link rel="icon" href="images/logo-2et.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,45 +68,106 @@
 
 <div class="page-hero">
   <div class="container">
-    <div class="eyebrow eyebrow-light">Contact</div>
-    <h1>Parlons de votre projet</h1>
-    <p>Une question ? Notre équipe vous répond rapidement.</p>
+    <div class="eyebrow eyebrow-light">Orientation</div>
+    <h1>Quelle filière BTS est faite pour vous ?</h1>
+    <p>5 questions rapides pour découvrir la filière 2ET la plus adaptée à votre profil.</p>
   </div>
 </div>
 
-<section class="section">
-  <div class="container" style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px">
+<section class="section-narrow">
+  <div class="container">
+    <div id="quiz-app">
 
-    <div>
-      <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:32px">
-        <div class="contact-info-card"><div class="label">Adresse</div><div class="value">Séguéla, quartier Résidentiel, non loin de l'ancienne base de l'ONUCI<br>20 BP 697 ABJ 20</div></div>
-        <div class="contact-info-card"><div class="label">Téléphone</div><div class="value">07 87 35 45 85<br>05 04 49 81 21<br>07 08 89 24 11</div></div>
-        <div class="contact-info-card"><div class="label">Email</div><div class="value">info@2et.edu.ci</div></div>
+      <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-progress-bar" style="width:20%"></div></div>
+
+      <div class="quiz-question active" data-index="0">
+        <div class="quiz-step-label">Question 1 sur 5</div>
+        <h2>Quelle activité te correspond le plus ?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="GEC">Négocier et convaincre un client</button>
+          <button class="quiz-option" data-value="FCGE">Manipuler des chiffres et tenir des comptes</button>
+          <button class="quiz-option" data-value="TL">Organiser le transport de marchandises</button>
+          <button class="quiz-option" data-value="IDA">Coder et résoudre des problèmes techniques</button>
+          <button class="quiz-option" data-value="TH">Accueillir et satisfaire des visiteurs</button>
+          <button class="quiz-option" data-value="MGP">Étudier la terre et ses ressources</button>
+          <button class="quiz-option" data-value="AD">Organiser l'agenda et les dossiers d'un dirigeant</button>
+        </div>
       </div>
-      <div class="map-frame">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-6.691312%2C7.951421%2C-6.675312%2C7.963421&layer=mapnik&marker=7.957421%2C-6.683312" title="Localisation École 2ET, Séguéla"></iframe>
+
+      <div class="quiz-question" data-index="1">
+        <div class="quiz-step-label">Question 2 sur 5</div>
+        <h2>Quelle matière scolaire préfères-tu ?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="GEC">Économie / Commerce</button>
+          <button class="quiz-option" data-value="FCGE">Mathématiques / Comptabilité</button>
+          <button class="quiz-option" data-value="TL">Géographie</button>
+          <button class="quiz-option" data-value="IDA">Informatique / Sciences</button>
+          <button class="quiz-option" data-value="TH">Langues / Communication</button>
+          <button class="quiz-option" data-value="MGP">Sciences de la terre / Physique-Chimie</button>
+          <button class="quiz-option" data-value="AD">Français / Organisation</button>
+        </div>
       </div>
+
+      <div class="quiz-question" data-index="2">
+        <div class="quiz-step-label">Question 3 sur 5</div>
+        <h2>Dans quel environnement de travail te vois-tu ?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="GEC">Sur le terrain, au contact des clients</button>
+          <button class="quiz-option" data-value="FCGE">Au bureau, dans un cabinet ou une entreprise</button>
+          <button class="quiz-option" data-value="TL">En entrepôt ou en zone logistique</button>
+          <button class="quiz-option" data-value="IDA">Devant un ordinateur, en équipe technique</button>
+          <button class="quiz-option" data-value="TH">En hôtel, en agence de voyage ou en restaurant</button>
+          <button class="quiz-option" data-value="MGP">Sur un site minier ou en laboratoire</button>
+          <button class="quiz-option" data-value="AD">Dans un bureau de direction</button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-index="3">
+        <div class="quiz-step-label">Question 4 sur 5</div>
+        <h2>Quel est ton objectif professionnel ?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="GEC">Devenir commercial ou entrepreneur</button>
+          <button class="quiz-option" data-value="FCGE">Devenir comptable ou gestionnaire financier</button>
+          <button class="quiz-option" data-value="TL">Piloter une chaîne logistique ou l'import-export</button>
+          <button class="quiz-option" data-value="IDA">Créer des applications ou des sites web</button>
+          <button class="quiz-option" data-value="TH">Travailler dans le tourisme ou l'hôtellerie</button>
+          <button class="quiz-option" data-value="MGP">Travailler dans les mines ou le pétrole</button>
+          <button class="quiz-option" data-value="AD">Assister une direction d'entreprise</button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-index="4">
+        <div class="quiz-step-label">Question 5 sur 5</div>
+        <h2>Quel type de défi te motive le plus ?</h2>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="GEC">Vendre et convaincre</button>
+          <button class="quiz-option" data-value="FCGE">Résoudre des équations et des bilans</button>
+          <button class="quiz-option" data-value="TL">Optimiser un trajet ou un stock</button>
+          <button class="quiz-option" data-value="IDA">Déboguer un programme</button>
+          <button class="quiz-option" data-value="TH">Créer une expérience client mémorable</button>
+          <button class="quiz-option" data-value="MGP">Explorer et analyser un terrain</button>
+          <button class="quiz-option" data-value="AD">Organiser un planning complexe</button>
+        </div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="quiz-back" id="quiz-back" hidden>← Question précédente</button>
+      </div>
+
+      <div class="quiz-result" id="quiz-result">
+        <div class="quiz-result-eyebrow">Votre filière recommandée</div>
+        <img id="quiz-result-img" src="" alt="">
+        <div class="program-code" id="quiz-result-code" style="margin-bottom:10px"></div>
+        <h2 id="quiz-result-title"></h2>
+        <p id="quiz-result-desc"></p>
+        <div class="quiz-result-actions">
+          <a id="quiz-result-link" href="formations.html" class="btn btn-green">Voir la filière en détail →</a>
+          <a href="admissions.html" class="btn btn-outline">S'inscrire maintenant</a>
+        </div>
+        <button class="quiz-restart" id="quiz-restart">Refaire le quiz</button>
+      </div>
+
     </div>
-
-    <div class="form-panel">
-      <h2>Envoyez-nous un message</h2>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hidden" style="display:none"><label>Ne pas remplir : <input name="bot-field"></label></p>
-        <input required name="nom" placeholder="Nom complet">
-        <input required type="email" name="email" placeholder="Email">
-        <input name="sujet" placeholder="Sujet">
-        <textarea required name="message" rows="5" placeholder="Votre message"></textarea>
-        <button type="submit" class="btn btn-green">Envoyer le message</button>
-        <div class="form-success">Merci ! Votre message a bien été envoyé.</div>
-      </form>
-      <div class="socials">
-        <a href="#" class="social-btn">f</a>
-        <a href="#" class="social-btn">in</a>
-        <a href="#" class="social-btn">ig</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -122,9 +183,10 @@
       <div class="footer-links">
         <a href="index.html">Accueil</a><a href="a-propos.html">Qui sommes-nous</a>
         <a href="faq.html">FAQ</a><a href="actualites.html">Actualités</a>
-        <a href="galerie.html">Galerie</a><a href="formations.html">Diplôme BTS</a>
-        <a href="formation-continue.html">Certification</a><a href="recrutement.html">Recrutement</a>
-        <a href="contact.html">Contact</a><a href="plateforme.html">Plateforme</a><a href="admissions.html">Admissions</a>
+        <a href="galerie.html">Galerie</a><a href="orientation.html">Quiz d'orientation</a>
+        <a href="formations.html">Diplôme BTS</a><a href="formation-continue.html">Certification</a>
+        <a href="recrutement.html">Recrutement</a><a href="contact.html">Contact</a>
+        <a href="plateforme.html">Plateforme</a><a href="admissions.html">Admissions</a>
       </div>
     </div>
     <div>
@@ -145,6 +207,13 @@
         <div>20 BP 697 ABJ 20</div>
       </div>
     </div>
+  </div>
+  <div class="footer-map">
+    <div class="footer-map-label">
+      <span>Nous trouver</span>
+      <a href="https://maps.app.goo.gl/5AaPVNksDcJz46Dr9" target="_blank" rel="noopener">Ouvrir dans Google Maps →</a>
+    </div>
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-6.691312%2C7.951421%2C-6.675312%2C7.963421&layer=mapnik&marker=7.957421%2C-6.683312" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation de l'École 2ET à Séguéla" allowfullscreen></iframe>
   </div>
   <div class="footer-bottom">
     <div>© <span id="year"></span> École Supérieure 2ET — Tous droits réservés</div>

@@ -10,7 +10,70 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCarousel();
   initStatsCounter();
   initAnnounceConfetti();
+  initWhatsAppButton();
+  initGalleryLightbox();
+  initOrientationQuiz();
 });
+
+// ---- Bouton WhatsApp flottant (injecté sur toutes les pages) ----
+function initWhatsAppButton() {
+  const btn = document.createElement('a');
+  btn.href = 'https://wa.me/225546262313?text=' + encodeURIComponent("Bonjour, je souhaite avoir des informations sur l'École 2ET.");
+  btn.className = 'whatsapp-float';
+  btn.target = '_blank';
+  btn.rel = 'noopener';
+  btn.setAttribute('aria-label', "Contacter l'École 2ET sur WhatsApp");
+  btn.innerHTML = '<svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.386.7 4.607 1.902 6.474L4 29l7.73-1.867A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.7c-1.97 0-3.9-.53-5.57-1.53l-.4-.24-4.59 1.11 1.13-4.47-.26-.42A9.65 9.65 0 0 1 5.3 15c0-5.9 4.8-10.7 10.7-10.7S26.7 9.1 26.7 15 21.9 24.7 16.004 24.7Zm5.9-8.02c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.26-.19.21-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.64s1.14 3.06 1.3 3.27c.16.21 2.24 3.42 5.43 4.8.76.33 1.35.53 1.82.68.76.24 1.45.21 2 .13.61-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/></svg>';
+  document.body.appendChild(btn);
+}
+
+// ---- Lightbox de la galerie : agrandissement au clic, navigation, respecte le filtre actif ----
+function initGalleryLightbox() {
+  const items = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.getElementById('lightbox');
+  if (!items.length || !lightbox) return;
+
+  const lightboxImg = lightbox.querySelector('img');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = lightbox.querySelector('.lightbox-prev');
+  const nextBtn = lightbox.querySelector('.lightbox-next');
+  let current = 0;
+
+  function visibleImages() {
+    return Array.from(items).filter((img) => img.closest('.gallery-item').style.display !== 'none');
+  }
+
+  function show(index) {
+    const list = visibleImages();
+    current = (index + list.length) % list.length;
+    lightboxImg.src = list[current].src;
+    lightboxImg.alt = list[current].alt;
+  }
+
+  function open(img) {
+    show(visibleImages().indexOf(img));
+    lightbox.classList.add('open');
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+  }
+
+  items.forEach((img) => {
+    img.addEventListener('click', () => open(img));
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', () => show(current - 1));
+  nextBtn.addEventListener('click', () => show(current + 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft') show(current - 1);
+  });
+}
 
 // ---- Éclat de confettis façon anniversaire sur le bandeau d'annonce (accueil) ----
 // À chaque chargement de la page, des petites bandes colorées partent du centre
@@ -227,4 +290,91 @@ function initNetlifyForms() {
         });
     });
   });
+}
+
+// ---- Quiz d'orientation : "Quelle filière BTS est faite pour vous ?" ----
+function initOrientationQuiz() {
+  const app = document.getElementById('quiz-app');
+  if (!app) return;
+
+  const FILIERES = {
+    GEC: { title: 'Gestion Commerciale', code: 'BTS · GEC', img: 'images/programs/gec.png', anchor: 'gec', desc: "Formation aux techniques de vente, de marketing et de relation client pour développer l'activité commerciale d'une entreprise." },
+    FCGE: { title: 'Finance Comptabilité et Gestion des Entreprises', code: 'BTS · FCGE', img: 'images/programs/fcge.png', anchor: 'fcge', desc: "Formation aux outils comptables et financiers nécessaires au pilotage économique d'une organisation." },
+    TL: { title: 'Transports et Logistique', code: 'BTS · TL', img: 'images/programs/log.png', anchor: 'log', desc: "Formation à la gestion des flux physiques et d'information, du stockage au transport international." },
+    IDA: { title: "Informatique Développeur d'Applications", code: 'BTS · IDA', img: 'images/programs/ida.jpg', anchor: 'ida', desc: "Formation à la conception et au développement d'applications informatiques et web." },
+    TH: { title: 'Tourisme et Hôtellerie', code: 'BTS · TH', img: 'images/programs/th.png', anchor: 'th', desc: "Formation aux métiers de l'accueil, de l'hôtellerie et de l'organisation touristique." },
+    MGP: { title: 'Mines et Géologie Pétrole', code: 'BTS · MGP', img: 'images/programs/mgp.png', anchor: 'mgp', desc: "Formation aux techniques d'exploration et d'exploitation des ressources minières et pétrolières." },
+    AD: { title: 'Assistanat de Direction', code: 'BTS · AD', img: 'images/programs/ad.png', anchor: 'ad', desc: "Formation aux techniques modernes de secrétariat et d'appui à la direction d'une organisation." }
+  };
+
+  const questions = Array.from(app.querySelectorAll('.quiz-question'));
+  const progressBar = document.getElementById('quiz-progress-bar');
+  const backBtn = document.getElementById('quiz-back');
+  const resultEl = document.getElementById('quiz-result');
+  const restartBtn = document.getElementById('quiz-restart');
+  const total = questions.length;
+  const answers = [];
+  let current = 0;
+
+  function updateProgress() {
+    const pct = ((current) / total) * 100;
+    progressBar.style.width = Math.max(pct, 4) + '%';
+    backBtn.hidden = current === 0;
+  }
+
+  function showQuestion(index) {
+    questions.forEach((q) => q.classList.remove('active'));
+    questions[index].classList.add('active');
+    resultEl.classList.remove('active');
+    current = index;
+    updateProgress();
+  }
+
+  function showResult() {
+    questions.forEach((q) => q.classList.remove('active'));
+    progressBar.style.width = '100%';
+    backBtn.hidden = true;
+
+    const tally = {};
+    answers.forEach((v) => { tally[v] = (tally[v] || 0) + 1; });
+    let winner = answers[0];
+    let best = 0;
+    Object.keys(tally).forEach((key) => {
+      if (tally[key] > best) { best = tally[key]; winner = key; }
+    });
+
+    const f = FILIERES[winner];
+    document.getElementById('quiz-result-img').src = f.img;
+    document.getElementById('quiz-result-img').alt = 'Filière ' + f.title;
+    document.getElementById('quiz-result-code').textContent = f.code;
+    document.getElementById('quiz-result-title').textContent = f.title;
+    document.getElementById('quiz-result-desc').textContent = f.desc;
+    document.getElementById('quiz-result-link').href = 'formations.html#' + f.anchor;
+
+    resultEl.classList.add('active');
+  }
+
+  questions.forEach((q, index) => {
+    q.querySelectorAll('.quiz-option').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        answers[index] = btn.getAttribute('data-value');
+        if (index + 1 < total) {
+          showQuestion(index + 1);
+        } else {
+          showResult();
+        }
+      });
+    });
+  });
+
+  backBtn.addEventListener('click', () => {
+    if (current > 0) showQuestion(current - 1);
+  });
+
+  restartBtn.addEventListener('click', () => {
+    answers.length = 0;
+    showQuestion(0);
+  });
+
+  updateProgress();
 }
