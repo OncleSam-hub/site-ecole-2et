@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNetlifyForms();
   initHeroCarousel();
   initStatsCounter();
+  initVisitorCounter();
   initAnnounceConfetti();
   initWhatsAppButton();
   initGalleryLightbox();
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initWhatsAppButton() {
   if (document.body.hasAttribute('data-no-whatsapp-float')) return;
   const btn = document.createElement('a');
-  btn.href = 'https://wa.me/225546262313?text=' + encodeURIComponent("Bonjour, je souhaite avoir des informations sur l'École 2ET.");
+  btn.href = 'https://wa.me/2250546262313?text=' + encodeURIComponent("Bonjour, je souhaite avoir des informations sur l'École 2ET.");
   btn.className = 'whatsapp-float';
   btn.target = '_blank';
   btn.rel = 'noopener';
@@ -108,29 +109,45 @@ function initAnnounceConfetti() {
 
 // ---- Compteurs animés du bandeau de chiffres clés (accueil) ----
 // Chaque chiffre part de 0 et monte jusqu'à sa valeur à chaque chargement du site.
+function animateCount(el, target, suffix, duration) {
+  duration = duration || 1400;
+  suffix = suffix || '';
+  const start = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+
 function initStatsCounter() {
   const values = document.querySelectorAll('.stats-bar .value[data-count-to]');
-  if (!values.length) return;
-  const duration = 1400;
-
   values.forEach((el) => {
     const target = parseInt(el.getAttribute('data-count-to'), 10);
-    const suffix = el.getAttribute('data-suffix') || '';
     if (isNaN(target)) return;
-    const start = performance.now();
-
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(target * eased);
-      el.textContent = current + suffix;
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
-    }
-
-    requestAnimationFrame(tick);
+    animateCount(el, target, el.getAttribute('data-suffix') || '');
   });
+}
+
+// ---- Compteur de visiteurs réel (accueil), via GoatCounter ----
+// Chiffre exact récupéré auprès de GoatCounter (service gratuit de mesure d'audience,
+// sans cookies), jamais inventé. Mis à jour côté GoatCounter toutes les 4h.
+function initVisitorCounter() {
+  const el = document.getElementById('visitor-count');
+  if (!el) return;
+  fetch('https://ecole2et.goatcounter.com/counter//.json')
+    .then((r) => r.json())
+    .then((data) => {
+      const target = parseInt(String(data.count).replace(/[^\d]/g, ''), 10);
+      if (!isNaN(target)) animateCount(el, target);
+    })
+    .catch(() => { /* si GoatCounter est injoignable, la tuile reste à 0 plutôt que d'afficher une erreur */ });
 }
 
 // ---- Carousel du hero (accueil) : annonces + flèches + points + défilement auto ----
@@ -299,13 +316,13 @@ function initOrientationQuiz() {
   if (!app) return;
 
   const FILIERES = {
-    GEC: { title: 'Gestion Commerciale', code: 'BTS · GEC', img: 'images/programs/gec.png', anchor: 'gec', desc: "Formation aux techniques de vente, de marketing et de relation client pour développer l'activité commerciale d'une entreprise." },
-    FCGE: { title: 'Finance Comptabilité et Gestion des Entreprises', code: 'BTS · FCGE', img: 'images/programs/fcge.png', anchor: 'fcge', desc: "Formation aux outils comptables et financiers nécessaires au pilotage économique d'une organisation." },
-    TL: { title: 'Logistique', code: 'BTS · Log', img: 'images/programs/log.png', anchor: 'log', desc: "Formation à la gestion des flux physiques et d'information, de l'approvisionnement au stockage, pour optimiser la chaîne logistique d'une organisation." },
+    GEC: { title: 'Gestion Commerciale', code: 'BTS · GEC', img: 'images/programs/gec.jpg', anchor: 'gec', desc: "Formation aux techniques de vente, de marketing et de relation client pour développer l'activité commerciale d'une entreprise." },
+    FCGE: { title: 'Finance Comptabilité et Gestion des Entreprises', code: 'BTS · FCGE', img: 'images/programs/fcge.jpg', anchor: 'fcge', desc: "Formation aux outils comptables et financiers nécessaires au pilotage économique d'une organisation." },
+    TL: { title: 'Logistique', code: 'BTS · Log', img: 'images/programs/log.jpg', anchor: 'log', desc: "Formation à la gestion des flux physiques et d'information, de l'approvisionnement au stockage, pour optimiser la chaîne logistique d'une organisation." },
     IDA: { title: "Informatique Développeur d'Applications", code: 'BTS · IDA', img: 'images/programs/ida.jpg', anchor: 'ida', desc: "Formation à la conception et au développement d'applications informatiques et web." },
-    TH: { title: 'Tourisme et Hôtellerie', code: 'BTS · TH', img: 'images/programs/th.png', anchor: 'th', desc: "Formation aux métiers de l'accueil, de l'hôtellerie et de l'organisation touristique." },
-    MGP: { title: 'Mines et Géologie Pétrole', code: 'BTS · MGP', img: 'images/programs/mgp.png', anchor: 'mgp', desc: "Formation aux techniques d'exploration et d'exploitation des ressources minières et pétrolières." },
-    AD: { title: 'Assistanat de Direction', code: 'BTS · AD', img: 'images/programs/ad.png', anchor: 'ad', desc: "Formation aux techniques modernes de secrétariat et d'appui à la direction d'une organisation." }
+    TH: { title: 'Tourisme et Hôtellerie', code: 'BTS · TH', img: 'images/programs/th.jpg', anchor: 'th', desc: "Formation aux métiers de l'accueil, de l'hôtellerie et de l'organisation touristique." },
+    MGP: { title: 'Mines et Géologie Pétrole', code: 'BTS · MGP', img: 'images/programs/mgp.jpg', anchor: 'mgp', desc: "Formation aux techniques d'exploration et d'exploitation des ressources minières et pétrolières." },
+    AD: { title: 'Assistanat de Direction', code: 'BTS · AD', img: 'images/programs/ad.jpg', anchor: 'ad', desc: "Formation aux techniques modernes de secrétariat et d'appui à la direction d'une organisation." }
   };
 
   const questions = Array.from(app.querySelectorAll('.quiz-question'));
@@ -351,6 +368,12 @@ function initOrientationQuiz() {
     document.getElementById('quiz-result-title').textContent = f.title;
     document.getElementById('quiz-result-desc').textContent = f.desc;
     document.getElementById('quiz-result-link').href = 'formations.html#' + f.anchor;
+
+    const shareBtn = document.getElementById('quiz-share-whatsapp');
+    if (shareBtn) {
+      const message = "J'ai fait le quiz d'orientation de l'École 2ET et je suis fait(e) pour la filière " + f.title + " ! Découvre ta filière ici : https://2et.edu.ci/orientation.html";
+      shareBtn.href = 'https://wa.me/?text=' + encodeURIComponent(message);
+    }
 
     resultEl.classList.add('active');
   }

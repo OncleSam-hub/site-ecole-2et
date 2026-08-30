@@ -3,20 +3,19 @@
 ## Vraies photos (fournies par Mick)
 
 - `images/logo-2et.png` — logo réel de l'école
-- `images/carousel/carousel-1.jpg` à `carousel-5.jpg` — étudiants 2ET sur le campus, carousel de la page d'accueil
-- `images/programs/gec.png`, `fcge.png`, `log.png`, `th.png`, `mgp.png`, `ad.png` — illustrations des 6 filières (mise en situation, badge 2ET)
+- `images/programs/gec.jpg`, `fcge.jpg`, `log.jpg`, `th.jpg`, `mgp.jpg`, `ad.jpg` — illustrations des 6 filières (mise en situation, badge 2ET)
 - `images/campus/campus-1.jpg` à `campus-6.jpg` — bâtiments et salles de classe du campus de Séguéla
 - `images/campus/salle-informatique-1.jpg`, `salle-informatique-2.jpg` — salle informatique de l'école
 - `images/vie-etudiante/etudiant-1.jpg` à `etudiant-4.jpg` — portraits d'étudiants en tenue 2ET, utilisés en galerie et sur la page admissions
 - `images/evenements/formation-cabinet.jpg` — session du cabinet de formation 2ET, utilisée sur la page formation continue et en galerie
 - `images/evenements/lancement-ecotourisme.jpg`, `ecotourisme-1.jpg` à `ecotourisme-5.jpg` — projet de formation en écotourisme mené par le cabinet de formation
-- `images/direction/directeur-des-etudes.png` — DIOMANDE Abdoul, Directeur des Études, utilisée dans la section « Mot du Directeur » de la page d'accueil
+- `images/direction/directeur-des-etudes.jpg` — DIOMANDE Abdoul, Directeur des Études, utilisée dans la section « Mot du Directeur » de la page d'accueil
 - `images/evenements/ceremonie-cloture-abidjan.jpeg`, `ceremonie-cloture-san-pedro.jpeg` — cérémonies de clôture de la formation en écotourisme (cabinet de formation 2ET)
 - `images/evenements/reunion-rentree-universitaire-2026-2027.jpeg` — réunion de préparation de la rentrée universitaire 2026-2027
 - `images/direction/directeur-technique.jpg` — Michaël YEMIAN, Directeur Technique, utilisée dans l'équipe dirigeante (page Qui sommes-nous)
 - `images/agrement/mesrs-ci.png` — logo officiel du Ministère de l'Enseignement Supérieur et de la Recherche Scientifique (MESRS), utilisé pour attester l'agrément de l'école
 - `images/agrement/armoirie-ci.png` — armoiries de la République de Côte d'Ivoire, utilisées aux côtés du logo du MESRS
-- `images/hero-campus.png` — visuel de fond du carrousel d'annonces de la page d'accueil (remplace `hero-scene.jpg`, supprimé)
+- `images/hero-campus.jpg` — visuel de fond du carrousel d'annonces de la page d'accueil (remplace `hero-scene.jpg`, supprimé)
 
 Toutes ces photos venaient à l'origine du dossier `photos-a-integrer/` (non versionné, zone de dépôt temporaire) et ont été rangées dans `images/` sous des noms clairs.
 
