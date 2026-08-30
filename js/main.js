@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initOrientationQuiz();
 });
 
-// ---- Bouton WhatsApp flottant (injecté sur toutes les pages) ----
+// ---- Bouton WhatsApp flottant (injecté sur toutes les pages, sauf celles ayant déjà un accès WhatsApp dédié) ----
 function initWhatsAppButton() {
+  if (document.body.hasAttribute('data-no-whatsapp-float')) return;
   const btn = document.createElement('a');
   btn.href = 'https://wa.me/225546262313?text=' + encodeURIComponent("Bonjour, je souhaite avoir des informations sur l'École 2ET.");
   btn.className = 'whatsapp-float';
