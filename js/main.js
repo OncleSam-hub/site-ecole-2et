@@ -300,7 +300,7 @@ function initOrientationQuiz() {
   const FILIERES = {
     GEC: { title: 'Gestion Commerciale', code: 'BTS · GEC', img: 'images/programs/gec.png', anchor: 'gec', desc: "Formation aux techniques de vente, de marketing et de relation client pour développer l'activité commerciale d'une entreprise." },
     FCGE: { title: 'Finance Comptabilité et Gestion des Entreprises', code: 'BTS · FCGE', img: 'images/programs/fcge.png', anchor: 'fcge', desc: "Formation aux outils comptables et financiers nécessaires au pilotage économique d'une organisation." },
-    TL: { title: 'Transports et Logistique', code: 'BTS · TL', img: 'images/programs/log.png', anchor: 'log', desc: "Formation à la gestion des flux physiques et d'information, du stockage au transport international." },
+    TL: { title: 'Logistique', code: 'BTS · Log', img: 'images/programs/log.png', anchor: 'log', desc: "Formation à la gestion des flux physiques et d'information, de l'approvisionnement au stockage, pour optimiser la chaîne logistique d'une organisation." },
     IDA: { title: "Informatique Développeur d'Applications", code: 'BTS · IDA', img: 'images/programs/ida.jpg', anchor: 'ida', desc: "Formation à la conception et au développement d'applications informatiques et web." },
     TH: { title: 'Tourisme et Hôtellerie', code: 'BTS · TH', img: 'images/programs/th.png', anchor: 'th', desc: "Formation aux métiers de l'accueil, de l'hôtellerie et de l'organisation touristique." },
     MGP: { title: 'Mines et Géologie Pétrole', code: 'BTS · MGP', img: 'images/programs/mgp.png', anchor: 'mgp', desc: "Formation aux techniques d'exploration et d'exploitation des ressources minières et pétrolières." },

@@ -16,6 +16,7 @@
 - `images/direction/directeur-technique.jpg` — Michaël YEMIAN, Directeur Technique, utilisée dans l'équipe dirigeante (page Qui sommes-nous)
 - `images/agrement/mesrs-ci.png` — logo officiel du Ministère de l'Enseignement Supérieur et de la Recherche Scientifique (MESRS), utilisé pour attester l'agrément de l'école
 - `images/agrement/armoirie-ci.png` — armoiries de la République de Côte d'Ivoire, utilisées aux côtés du logo du MESRS
+- `images/hero-campus.png` — visuel de fond du carrousel d'annonces de la page d'accueil (remplace `hero-scene.jpg`, supprimé)
 
 Toutes ces photos venaient à l'origine du dossier `photos-a-integrer/` (non versionné, zone de dépôt temporaire) et ont été rangées dans `images/` sous des noms clairs.
 

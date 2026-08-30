@@ -132,7 +132,7 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   background-color: #fff;
   background-image:
     linear-gradient(100deg, #fff 0%, #fff 34%, rgba(255,255,255,0.55) 52%, rgba(255,255,255,0.22) 72%, rgba(255,255,255,0.08) 100%),
-    url('../images/hero-scene.jpg');
+    url('../images/hero-campus.png');
   background-repeat: no-repeat, no-repeat;
   background-position: center, right center;
   background-size: cover, cover;
@@ -217,16 +217,17 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   background: linear-gradient(90deg, var(--green), var(--gold), var(--orange));
   transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
 }
-.platform-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(20,50,31,0.16); border-color: transparent; }
-.platform-card:hover::before { transform: scaleX(1); }
+.platform-card:not(.is-disabled):hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(20,50,31,0.16); border-color: transparent; }
+.platform-card:not(.is-disabled):hover::before { transform: scaleX(1); }
 .platform-card-icon {
   width: 92px; height: 92px; border-radius: 50%; background: var(--green-light); color: var(--green);
   display: flex; align-items: center; justify-content: center;
   transition: background 0.25s ease, color 0.25s ease, transform 0.3s ease;
 }
 .platform-card-icon svg { width: 44px; height: 44px; }
-.platform-card:hover .platform-card-icon { background: var(--green); color: #fff; transform: scale(1.08) rotate(-6deg); }
+.platform-card:not(.is-disabled):hover .platform-card-icon { background: var(--green); color: #fff; transform: scale(1.08) rotate(-6deg); }
 .platform-card-label { font-family: var(--font-heading); font-weight: 700; font-size: 14.5px; color: var(--text); }
+.platform-card.is-disabled { cursor: default; }
 @media (max-width: 900px) { .platform-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 560px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
 
@@ -529,3 +530,33 @@ textarea { resize: vertical; }
 .quiz-restart { background: none; border: none; color: var(--text-muted); font-size: 13.5px; text-decoration: underline; cursor: pointer; }
 .quiz-restart:hover { color: var(--green); }
 @keyframes quizFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ---- Zone abonnement réseaux sociaux (page Actualités) ---- */
+.social-follow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.social-follow-card {
+  display: flex; align-items: center; gap: 16px; padding: 22px 20px; border-radius: 16px;
+  background: #fff; border: 1px solid var(--border); text-decoration: none; position: relative; overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.social-follow-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--brand); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+}
+.social-follow-card:hover::before { transform: scaleX(1); }
+.social-follow-card:not(.is-disabled):hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(20,50,31,0.12); border-color: transparent; }
+.social-follow-icon {
+  width: 52px; height: 52px; border-radius: 50%; background: var(--brand); color: #fff;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.social-follow-icon svg { width: 25px; height: 25px; }
+.social-follow-name { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--text); }
+.social-follow-cta { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.social-follow-card.is-disabled { cursor: default; }
+.social-follow-card.is-disabled .social-follow-icon { opacity: 0.55; }
+.social-follow-card.is-disabled .social-follow-name, .social-follow-card.is-disabled .social-follow-cta { opacity: 0.55; }
+.social-follow-badge {
+  position: absolute; top: 12px; right: 14px; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.4px; color: var(--text-muted); background: var(--bg); padding: 3px 9px; border-radius: 100px;
+}
+@media (max-width: 900px) { .social-follow-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .social-follow-grid { grid-template-columns: 1fr; } }
