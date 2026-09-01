@@ -14,7 +14,7 @@
 - `images/evenements/reunion-rentree-universitaire-2026-2027.jpeg` — réunion de préparation de la rentrée universitaire 2026-2027
 - `images/direction/directeur-technique.jpg` — Michaël YEMIAN, Directeur Technique, utilisée dans l'équipe dirigeante (page Qui sommes-nous)
 - `images/agrement/mesrs-ci.png` — logo officiel du Ministère de l'Enseignement Supérieur et de la Recherche Scientifique (MESRS), utilisé pour attester l'agrément de l'école
-- `images/agrement/armoirie-ci.png` — armoiries de la République de Côte d'Ivoire, utilisées aux côtés du logo du MESRS
+- `images/agrement/fdfp.png` — logo officiel du Fonds de Développement de la Formation Professionnelle (FDFP), utilisé pour attester l'agrément de la certification (page Qui sommes-nous)
 - `images/hero-campus.jpg` — visuel de fond du carrousel d'annonces de la page d'accueil (remplace `hero-scene.jpg`, supprimé)
 - `images/partenaires/retaci.jpg` — logo RETACI (Réseau Ivoirien du Tourisme et de l'Agro Ecotourisme)
 - `images/partenaires/universite-san-pedro.jpg` — logo Université de San-Pedro
