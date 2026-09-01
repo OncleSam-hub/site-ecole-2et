@@ -191,9 +191,15 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   .hero-arrow-next { right: 8px; }
 }
 
-/* ---- Page hero (interior pages) ---- */
-.page-hero { background: var(--green); padding: 70px 24px 50px; text-align: center; }
-.page-hero .container { max-width: 900px; }
+/* ---- Page hero (interior pages) ----
+   Chaque page pose son propre visuel en style inline (background-image) ; le voile sombre
+   uniforme (::before) garantit un texte blanc lisible quelle que soit la composition de l'image. */
+.page-hero {
+  position: relative; overflow: hidden; background-color: var(--green); padding: 70px 24px 50px; text-align: center;
+  background-size: cover; background-position: center;
+}
+.page-hero::before { content: ""; position: absolute; inset: 0; background: rgba(18,18,20,0.6); }
+.page-hero .container { position: relative; z-index: 1; max-width: 900px; }
 .page-hero h1 { font-size: 36px; color: #fff; margin: 0 0 14px; }
 .page-hero p { font-size: 15.5px; color: #DCE8DE; margin: 0; line-height: 1.6; }
 
@@ -232,6 +238,15 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 .platform-card.is-disabled { cursor: default; }
 @media (max-width: 900px) { .platform-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 560px) { .platform-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---- Bandeau partenaires (accueil) ---- */
+.partners-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 36px; }
+.partner-logo {
+  width: 150px; height: 90px; background: #fff; border-radius: 12px; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; padding: 14px;
+}
+.partner-logo img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(1); opacity: 0.75; transition: filter 0.25s ease, opacity 0.25s ease; }
+.partner-logo:hover img { filter: grayscale(0); opacity: 1; }
 
 /* ---- Stats ---- */
 .stats-bar { background: var(--green); }

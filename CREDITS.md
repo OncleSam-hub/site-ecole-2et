@@ -16,8 +16,26 @@
 - `images/agrement/mesrs-ci.png` — logo officiel du Ministère de l'Enseignement Supérieur et de la Recherche Scientifique (MESRS), utilisé pour attester l'agrément de l'école
 - `images/agrement/armoirie-ci.png` — armoiries de la République de Côte d'Ivoire, utilisées aux côtés du logo du MESRS
 - `images/hero-campus.jpg` — visuel de fond du carrousel d'annonces de la page d'accueil (remplace `hero-scene.jpg`, supprimé)
+- `images/partenaires/retaci.jpg` — logo RETACI (Réseau Ivoirien du Tourisme et de l'Agro Ecotourisme)
+- `images/partenaires/universite-san-pedro.jpg` — logo Université de San-Pedro
+- `images/partenaires/agence-emploi-jeunes.png` — logo Agence Emploi Jeunes (Guichet Unique de l'Emploi en Côte d'Ivoire)
 
 Toutes ces photos venaient à l'origine du dossier `photos-a-integrer/` (non versionné, zone de dépôt temporaire) et ont été rangées dans `images/` sous des noms clairs.
+
+## Illustrations générées (Canva, style abstrait plat)
+
+Bandeaux de fond des 10 pages intérieures (`.page-hero`), générés via Canva selon le sujet de chaque page (illustration plate, formes géométriques, palette de couleur propre à chaque thème, sans texte ni logo intégré). Un voile sombre uniforme est posé en CSS par-dessus pour garantir la lisibilité du texte blanc, quel que soit le sujet de l'image.
+
+- `images/heroes/formations.jpg` — Diplôme BTS (toque et livres)
+- `images/heroes/certification.jpg` — Certification (badge et ruban)
+- `images/heroes/admissions.jpg` — Admissions (porte ouverte, formulaire)
+- `images/heroes/recrutement.jpg` — Recrutement (mallette, poignée de main)
+- `images/heroes/actualites.jpg` — Actualités (mégaphone, cloche)
+- `images/heroes/galerie.jpg` — Galerie (pellicule, cadres photo)
+- `images/heroes/faq.jpg` — FAQ (point d'interrogation, bulles)
+- `images/heroes/contact.jpg` — Contact (enveloppe, localisation)
+- `images/heroes/a-propos.jpg` — Qui sommes-nous (colonne, façade académique)
+- `images/heroes/orientation.jpg` — Quiz d'orientation (ampoule, boussole)
 
 ## Photos temporaires restantes (banque d'images Unsplash)
 
