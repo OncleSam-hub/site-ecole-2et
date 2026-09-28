@@ -296,11 +296,98 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 .photo-frame { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; }
 .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ---- Program cards (home) ---- */
+/* ---- Program cards (home, mobile/tablet fallback under 900px) ---- */
 .program-tile { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; display: block; }
 .program-tile:hover { border-color: var(--green); box-shadow: 0 8px 20px rgba(27,94,58,0.1); }
 .program-code { font-size: 11px; font-weight: 800; letter-spacing: 0.5px; color: var(--orange); margin-bottom: 10px; }
 .program-name { font-family: var(--font-heading); font-weight: 700; font-size: 15.5px; color: var(--text); line-height: 1.3; }
+
+/* ---- Orbite des filières (home, écrans >= 900px uniquement) ----
+   7 filières en rotation continue autour du logo. Chaque item est positionné à un angle
+   fixe (rotate + translateX + rotate inverse pour rester droit), puis une seconde couche
+   (.orbit-item-inner) tourne en sens inverse de l'anneau, à la même vitesse, pour annuler
+   la rotation du parent : le contenu (icône + texte) reste toujours lisible et droit,
+   seule la position tourne. Survol de la zone = pause du mouvement ; survol d'un item =
+   révélation du nom complet de la filière (voir "Effet rotatif.mp4" fourni en référence). */
+.formations-grid-fallback { display: block; }
+.formations-orbit { display: none; }
+@media (min-width: 900px) {
+  .formations-grid-fallback { display: none; }
+  .formations-orbit { display: block; }
+}
+.formations-orbit { position: relative; width: 560px; max-width: 100%; aspect-ratio: 1/1; margin: 10px auto 0; }
+
+.orbit-hub {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 130px; height: 130px; border-radius: 50%;
+  background: #fff; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 6px rgba(226,121,47,0.14), 0 0 0 15px rgba(226,121,47,0.07), 0 10px 26px rgba(20,50,31,0.2);
+  z-index: 2;
+}
+.orbit-hub-logo { width: 78px; height: auto; }
+
+.orbit-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px dashed rgba(27,94,58,0.25);
+  animation: orbit-spin 42s linear infinite;
+}
+/* Cercle moyen, proche du hub sans le toucher : sert uniquement de repère visuel.
+   Les filières (rayon 198px) sont ainsi à mi-chemin entre ce cercle (rayon 115px)
+   et le grand cercle extérieur (rayon 280px = moitié de la largeur de .formations-orbit). */
+.orbit-ring-mid {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 230px; height: 230px; border-radius: 50%;
+  border: 1px dashed rgba(27,94,58,0.25);
+  z-index: 1;
+}
+.formations-orbit:hover .orbit-ring,
+.formations-orbit:hover .orbit-item-inner { animation-play-state: paused; }
+
+.orbit-item {
+  position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+  transform: rotate(var(--angle)) translateX(198px) rotate(calc(-1 * var(--angle)));
+}
+.orbit-item-inner {
+  /* position:absolute (plutôt que display:block) : évite que ce bloc hérite d'une largeur
+     de 0 venant de .orbit-item (width:0/height:0, nécessaire pour le pivot de rotation).
+     En absolu, la puce se dimensionne correctement à son contenu (icône + texte).
+     Le centrage (translate -50%/-50%) est inclus DANS les keyframes de l'animation
+     (et non posé séparément en transform statique) : sinon l'animation, qui ne pilote
+     que la rotation, écrase le centrage au fil du temps et fait dériver/pencher la puce. */
+  position: absolute;
+  animation: orbit-spin-reverse 42s linear infinite;
+}
+.orbit-item-chip {
+  /* Repos : carré à bords arrondis (icône au-dessus du code). Survol : s'étire en
+     rectangle arrondi (icône + code + nom sur une ligne), sans jamais redevenir une
+     pilule complète (border-radius réduit mais toujours net, pas 999px). */
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; width: 82px; height: 82px; box-sizing: border-box;
+  background: #fff; border: 1px solid var(--border); border-radius: 20px;
+  padding: 0 14px; white-space: nowrap; text-decoration: none; overflow: hidden;
+  box-shadow: 0 4px 14px rgba(20,50,31,0.09);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease,
+              width 0.35s ease, border-radius 0.3s ease;
+}
+.orbit-icon { width: 30px; height: 30px; color: var(--green); flex-shrink: 0; transition: color 0.25s ease; }
+.orbit-item-code { font-family: var(--font-heading); font-weight: 800; font-size: 12.5px; color: var(--text); letter-spacing: 0.3px; transition: color 0.25s ease; }
+.orbit-item-name {
+  max-width: 0; opacity: 0; overflow: hidden; white-space: nowrap;
+  font-size: 13px; font-weight: 600; color: #fff;
+  transition: max-width 0.35s ease, opacity 0.2s ease, margin-left 0.35s ease;
+}
+.orbit-item:hover .orbit-item-chip {
+  flex-direction: row; width: auto; min-width: 82px; border-radius: 16px;
+  background: var(--green); border-color: var(--green); box-shadow: 0 12px 26px rgba(27,94,58,0.32);
+}
+.orbit-item:hover .orbit-icon, .orbit-item:hover .orbit-item-code { color: #fff; }
+.orbit-item:hover .orbit-item-name { max-width: 260px; opacity: 1; margin-left: 2px; }
+
+@keyframes orbit-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes orbit-spin-reverse {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(-360deg); }
+}
 
 /* ---- CTA band ---- */
 .cta-band { background: var(--green-dark); padding: 56px 24px; text-align: center; }
