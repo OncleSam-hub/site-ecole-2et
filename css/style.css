@@ -125,10 +125,34 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 .nav-icon { width: 16px; height: 16px; flex-shrink: 0; }
 .mobile-nav a .nav-icon { width: 17px; height: 17px; }
 
-/* ---- Hero : carrousel d'annonces (espace publicitaire institutionnel) ----
-   Arrière-plan fixe (motif toque/livre/badge + dégradé blanc), inchangé d'une
-   annonce à l'autre — seul le contenu de chaque slide se fond en transition. */
+/* ---- Hero : bannière statique (félicitations bacheliers 2026) ----
+   Remplace le 10/09/2026 le carrousel d'annonces (version d'origine conservée juste en
+   dessous, en commentaire, pour réactivation ultérieure). Pas de dégradé ici : la bannière
+   fournie porte déjà son propre design (texte + fond intégrés) ; un voile blanc la
+   masquerait à moitié, elle doit rester pleinement visible. */
 .hero { position: relative; overflow: hidden; }
+.hero-slides {
+  position: relative; min-height: clamp(300px, 34vw, 380px);
+  background-color: #fff;
+  background-image: url('../images/hero-bacheliers-2026.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+/* Sous 700px, la bannière large (ratio 3,8:1) coupait le texte au recadrage automatique.
+   On bascule sur un recadrage resserré (1320x630, ratio ~2,1:1) qui garde tout le texte
+   visible, quitte à perdre les photos des 3 étudiants (déjà secondaires sur mobile). */
+@media (max-width: 700px) {
+  .hero-slides {
+    background-image: url('../images/hero-bacheliers-2026-mobile.jpg');
+    /* Hauteur alignée sur le ratio réel de cette image (1320x350, mise à jour le 28/09)
+       pour un affichage sans recadrage supplémentaire par "cover". */
+    min-height: min(26.5vw, 185px);
+  }
+}
+/* ---- Version d'origine (carrousel d'annonces + dégradé), conservée en commentaire ----
+   Pour réactiver : décommenter cette règle (et supprimer/commenter celle juste au-dessus),
+   puis décommenter les slides + la navigation dans index.html (section .hero).
 .hero-slides {
   position: relative; min-height: clamp(300px, 34vw, 380px);
   background-color: #fff;
@@ -139,6 +163,7 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   background-position: center, right center;
   background-size: cover, cover;
 }
+*/
 .hero-slide {
   position: absolute; inset: 0; display: flex; align-items: center;
   opacity: 0; visibility: hidden; transition: opacity 0.5s ease;
