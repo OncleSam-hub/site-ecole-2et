@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsAppButton();
   initGalleryLightbox();
   initOrientationQuiz();
+  initFormationsOrbitTouchPause();
 });
 
 // ---- Bouton WhatsApp flottant (injecté sur toutes les pages, sauf celles ayant déjà un accès WhatsApp dédié) ----
@@ -207,6 +208,20 @@ function initHeroCarousel() {
   }
 
   startAutoplay();
+}
+
+// ---- Orbite des filières (accueil) : pause de la rotation au toucher (tactile) ----
+// Le survol (souris) met déjà la rotation en pause via CSS (:hover). Au doigt, il n'y a
+// pas de survol fiable : on ajoute donc une classe au premier contact, qui déclenche la
+// même pause CSS, pour laisser le temps de viser et toucher une filière sans qu'elle bouge.
+function initFormationsOrbitTouchPause() {
+  const orbit = document.querySelector('.formations-orbit');
+  if (!orbit) return;
+  const pause = () => orbit.classList.add('is-touch-active');
+  const resume = () => orbit.classList.remove('is-touch-active');
+  orbit.addEventListener('touchstart', pause, { passive: true });
+  orbit.addEventListener('touchend', resume);
+  orbit.addEventListener('touchcancel', resume);
 }
 
 // ---- Menu mobile ----

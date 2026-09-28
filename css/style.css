@@ -309,12 +309,10 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
    la rotation du parent : le contenu (icône + texte) reste toujours lisible et droit,
    seule la position tourne. Survol de la zone = pause du mouvement ; survol d'un item =
    révélation du nom complet de la filière (voir "Effet rotatif.mp4" fourni en référence). */
-.formations-grid-fallback { display: block; }
-.formations-orbit { display: none; }
-@media (min-width: 900px) {
-  .formations-grid-fallback { display: none; }
-  .formations-orbit { display: block; }
-}
+/* L'orbite s'affiche maintenant à toutes les tailles d'écran (y compris smartphone) ;
+   la grille statique reste dans le code, masquée, pour réactivation facile si besoin. */
+.formations-grid-fallback { display: none; }
+.formations-orbit { display: block; }
 .formations-orbit { position: relative; width: 560px; max-width: 100%; aspect-ratio: 1/1; margin: 10px auto 0; }
 
 .orbit-hub {
@@ -341,7 +339,9 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
   z-index: 1;
 }
 .formations-orbit:hover .orbit-ring,
-.formations-orbit:hover .orbit-item-inner { animation-play-state: paused; }
+.formations-orbit:hover .orbit-item-inner,
+.formations-orbit.is-touch-active .orbit-ring,
+.formations-orbit.is-touch-active .orbit-item-inner { animation-play-state: paused; }
 
 .orbit-item {
   position: absolute; top: 50%; left: 50%; width: 0; height: 0;
@@ -382,6 +382,26 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
 }
 .orbit-item:hover .orbit-icon, .orbit-item:hover .orbit-item-code { color: #fff; }
 .orbit-item:hover .orbit-item-name { max-width: 260px; opacity: 1; margin-left: 2px; }
+
+/* En dessous de 900px (tablette et mobile), toutes les dimensions sont réduites et
+   exprimées en min(vw, px) : elles suivent la largeur réelle de l'écran tout en
+   plafonnant à une taille confortable, pour ne jamais déborder même sur les très
+   petits téléphones. Les proportions (rayons, tailles relatives) sont conservées.
+   Placé APRÈS les règles de bureau ci-dessus : en CSS, à spécificité égale, la règle
+   la plus bas dans le fichier l'emporte, peu importe la media query — ce bloc doit
+   donc rester en dernier pour bien écraser les valeurs de bureau sous 900px. */
+@media (max-width: 899px) {
+  .formations-orbit { width: min(80vw, 320px); margin-top: 4px; }
+  .orbit-hub { width: min(21vw, 84px); height: min(21vw, 84px); }
+  .orbit-hub-logo { width: min(12.5vw, 50px); }
+  .orbit-ring-mid { width: min(38vw, 152px); height: min(38vw, 152px); }
+  .orbit-item { transform: rotate(var(--angle)) translateX(min(28vw, 112px)) rotate(calc(-1 * var(--angle))); }
+  .orbit-item-chip { width: min(13vw, 52px); height: min(13vw, 52px); gap: 3px; padding: 0 8px; border-radius: 14px; }
+  .orbit-icon { width: min(5vw, 20px); height: min(5vw, 20px); }
+  .orbit-item-code { font-size: 9px; }
+  .orbit-item-name { font-size: 10.5px; }
+  .orbit-item:hover .orbit-item-chip, .orbit-item:active .orbit-item-chip { min-width: min(13vw, 52px); border-radius: 12px; }
+}
 
 @keyframes orbit-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes orbit-spin-reverse {
