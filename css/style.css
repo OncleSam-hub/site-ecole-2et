@@ -132,22 +132,24 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; margin: 0; colo
    masquerait à moitié, elle doit rester pleinement visible. */
 .hero { position: relative; overflow: hidden; }
 .hero-slides {
-  position: relative; min-height: clamp(300px, 34vw, 380px);
+  position: relative;
+  /* aspect-ratio cale exactement la hauteur du conteneur sur le ratio réel de l'image
+     (2400x630) à n'importe quelle largeur d'écran : "cover" n'a alors plus besoin de
+     rogner les bords gauche/droit pour remplir une hauteur mal calculée (ancien bug
+     avec clamp(), qui coupait le texte sur les largeurs d'écran de bureau courantes). */
+  aspect-ratio: 2400 / 630;
+  max-height: 450px; /* évite une bannière démesurée sur les très grands écrans/4K */
   background-color: #fff;
   background-image: url('../images/hero-bacheliers-2026.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-/* Sous 700px, la bannière large (ratio 3,8:1) coupait le texte au recadrage automatique.
-   On bascule sur un recadrage resserré (1320x630, ratio ~2,1:1) qui garde tout le texte
-   visible, quitte à perdre les photos des 3 étudiants (déjà secondaires sur mobile). */
 @media (max-width: 700px) {
   .hero-slides {
     background-image: url('../images/hero-bacheliers-2026-mobile.jpg');
-    /* Hauteur alignée sur le ratio réel de cette image (1320x350, mise à jour le 28/09)
-       pour un affichage sans recadrage supplémentaire par "cover". */
-    min-height: min(26.5vw, 185px);
+    /* Ratio réel de cette image (1320x350, mise à jour le 28/09). */
+    aspect-ratio: 1320 / 350;
   }
 }
 /* ---- Version d'origine (carrousel d'annonces + dégradé), conservée en commentaire ----
